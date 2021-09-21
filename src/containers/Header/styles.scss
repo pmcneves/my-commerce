@@ -1,0 +1,38 @@
+.container {
+    width: 70%;
+    padding: 0 $m-size;
+    margin: 0 auto;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header {
+    background-color: $gold;
+    padding: $l-size $m-size;
+    color: $off-white;
+    &__brand {
+        font-family: $UniSansThin;
+    }
+    &__nav {
+        &__item {
+            font-family: $GaramondPro;
+            color: $off-white;
+            text-decoration: none;
+            font-size: 12px;
+            margin: 0 auto;
+            &:not(:last-child) {
+                padding-right: $xl-size;
+            }
+        }
+    }
+    &__cart {
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+    }
+}

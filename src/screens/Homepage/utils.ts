@@ -1,0 +1,4 @@
+export const FETCH_DATA = 'FETCH_DATA';
+export const SET_DATA_SUCCESS = 'SET_DATA_SUCCESS';
+export const SET_DATA_FAIL = 'SET_DATA_FAIL';
+export const SIDEBAR_TOGGLER = 'SIDEBAR_TOGGLER';

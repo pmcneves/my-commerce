@@ -1,0 +1,47 @@
+.sidebar-container {
+    position: absolute;
+    right: 0;
+    width:0;
+    top: 0;
+    height: 100vh;
+    background-color: rgb(0,0,0,0.1);
+    display: none;
+    &.isOpen {
+        display: initial;
+        animation: slidein 0.5s ease forwards;
+    }
+    &.isClosed {
+        animation: slideout 0.5s ease forwards;
+        display: initial;
+    }
+}
+
+.sidebar {
+    margin-top: 50px;
+    &__title {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+
+@keyframes slidein {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 90vw;
+    }
+}
+
+@keyframes slideout {
+    from {
+        width: 90vw;
+        
+    }
+
+    to {
+        width: 0;
+    }
+}

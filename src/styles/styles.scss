@@ -1,0 +1,10 @@
+@import './base/resets.scss';
+@import './base/variables.scss';
+@import './base/base.scss';
+@import './base/fonts.scss';
+
+// Containers
+@import '../containers/Header/styles.scss';
+
+// Components
+@import '../components/Sidebar/styles.scss';

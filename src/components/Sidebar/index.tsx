@@ -4,35 +4,22 @@ import { RootState } from '../../store/rootReducer';
 import { GrClose } from 'react-icons/gr';
 import { sidebarToggler } from '../../screens/Homepage/actions';
 
-const Sidebar: React.FC = () => {
-    const dispatch = useDispatch();
+type SidebarProps = {
+    classToAdd: string;
+    closeSidebar: () => void
+};
 
-    const { isSidebarOpen } = useSelector((state: RootState) => state.store);
-    const [sidebarClass, setSidebarClass] = useState('');
-
-    const toggleSidebar = () => {
-        dispatch(sidebarToggler());
-    };
-
-    useEffect(() => {
-        if (isSidebarOpen === true) {
-            setSidebarClass('isOpen');
-        } else if (isSidebarOpen === false) {
-            setSidebarClass('isClosed');
-        }
-    }, [isSidebarOpen]);
-
+const Sidebar: React.FC<SidebarProps> = ({ classToAdd, closeSidebar }: SidebarProps) => {
     return (
-        <aside className={`sidebar-container ${sidebarClass}`}>
-            <div className="sidebar">
-                <div className="sidebar__title">
-                    <button onClick={toggleSidebar}>
-                        <GrClose />
-                    </button>
-                    <h1>Carrinho</h1>
-                </div>
-            </div>
-        </aside>
+        <div className={`${classToAdd} sidenav`}>
+            <a onClick={closeSidebar} className="closebtn">
+                &times;
+            </a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </div>
     );
 };
 

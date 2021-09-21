@@ -10,7 +10,12 @@ const Homepage: React.FC = () => {
     return (
         
     <div>
-        <button onClick={toggleSidebar}>open</button>
+        <p>lol</p>
+        <p>lol</p>
+        <p>lol</p>
+        <p>lol</p>
+        <p>lol</p>
+        <p>lol</p>
     </div>);
 };
 

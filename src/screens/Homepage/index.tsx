@@ -1,6 +1,7 @@
 import AdditionalInfo from '../../components/AdditionalInfo';
 import HomepageCaroussel from '../../components/HomepageCaroussel';
 import DisplayItems from '../../containers/DisplayItems';
+import About from '../../components/About';
 
 const Homepage: React.FC = () => {
     return (
@@ -8,6 +9,7 @@ const Homepage: React.FC = () => {
             <HomepageCaroussel />
             <AdditionalInfo />
             <DisplayItems />
+            <About />
         </main>
     );
 };

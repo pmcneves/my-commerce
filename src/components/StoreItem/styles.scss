@@ -1,0 +1,25 @@
+.item {
+    height: 100%;
+    &__image {
+        width: 100%;
+        height: 200px;
+        padding: $l-size;
+        background-color: $off-white;
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    &__info {
+        background-color: $gold;
+        width: 100%;
+        height: 100px;
+        color: $off-white;
+        padding: $l-size;
+        text-align: center;
+    }
+    &__title {
+        height: 65px;
+    }
+}

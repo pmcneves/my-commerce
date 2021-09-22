@@ -1,8 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import { GiShoppingCart } from 'react-icons/gi';
+import { GiShoppingCart, GiHamburgerMenu } from 'react-icons/gi';
 import { HiUserCircle } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
-import { GiHamburgerMenu } from 'react-icons/gi';
 import Sidebar from '../../components/Sidebar';
 import { useState } from 'react';
 

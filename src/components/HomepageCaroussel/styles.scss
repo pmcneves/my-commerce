@@ -1,0 +1,47 @@
+.caroussel {
+    background-image: url('../../assets/caroussel-image.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 700px;
+    width: 100%;
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__box {
+        background-color: $off-white;
+        padding: $s-size $s-size;
+        opacity: 0.9;
+    }
+    &__inside-box {
+        border: 1px solid $gold;
+        padding: 50px;
+        color: $gold;
+        text-transform: uppercase;
+        text-align: center;
+        &__title {
+            font-family: $Uni-Sans-Bold;
+            font-size: 60px;
+            padding-bottom: $xl-size;
+            border-bottom: 1px solid $gold;
+        }
+        &__subtitle {
+            font-size: 25px;
+            margin-top: $m-size;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .caroussel {
+        height: 500px;
+        &__inside-box {
+            &__title {
+                font-size: 40px;
+            }
+            &__subtitle {
+                font-size: 20px;
+            }
+        }
+    }
+}

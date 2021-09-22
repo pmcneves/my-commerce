@@ -1,9 +1,3 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store/rootReducer';
-import { GrClose } from 'react-icons/gr';
-import { sidebarToggler } from '../../screens/Homepage/actions';
-
 type SidebarProps = {
     classToAdd: string;
     closeSidebar: () => void

@@ -7,66 +7,27 @@ import Sidebar from '../../components/Sidebar';
 import { useState } from 'react';
 
 const Header: React.FC = () => {
-
-
     /**
      * sidebar handling
      */
     const [classToAdd, setClassToAdd] = useState<string>('');
     const openSidebar = (): void => {
         setClassToAdd('sidebar-open');
-        document.body.style.backgroundColor = 'rgba(0,0,0,0.4)';
+        // document.body.style.backgroundColor = 'rgba(0,0,0,0.4)';
     };
     const closeSidebar = (): void => {
         setClassToAdd('');
-        document.body.style.backgroundColor = 'rgba(0,0,0,0)';
-
+        // document.body.style.backgroundColor = 'rgba(0,0,0,0)';
     };
 
     /**
      * burger icon handler
      */
-    const [isBurgerClicked, setIsBurgetClicked] = useState(false);
-    const handleClick = () => setIsBurgetClicked(!isBurgerClicked);
-    const closeMobileMenu = () => setIsBurgetClicked(false);
+    const [isBurgerClicked, setIsBurgetClicked] = useState<boolean>(false);
+    const handleClick = (): void => setIsBurgetClicked(!isBurgerClicked);
+    const closeMobileMenu = (): void  => setIsBurgetClicked(false);
 
     return (
-        // <header className="header">
-        //     <div className="container">
-        //         <div className="header-container">
-        //             <div className="header__brand"> A Lojinha </div>
-        //             <div className="header__nav">
-        //                 <nav className="header__nav__options">
-        //                     <NavLink to="#" className="header__nav__item">
-        //                         Página inicial
-        //                     </NavLink>
-        //                     <NavLink to="#" className="header__nav__item">
-        //                         Loja
-        //                     </NavLink>
-        //                     <NavLink to="#" className="header__nav__item">
-        //                         Sobre
-        //                     </NavLink>
-        //                     <NavLink to="#" className="header__nav__item">
-        //                         Contacto
-        //                     </NavLink>
-        //                 </nav>
-        //                 {/* <div className="header__cart" onClick={openSidebar}> */}
-        //                 <div className="header__cart">
-        //                     <GiShoppingCart size={30} />
-        //                 </div>
-        //                 <div className="header__log">
-        //                     <HiUserCircle size={30}/>
-        //                     <p>Login</p>
-        //                 </div>
-        //                 <div className="header__burger">
-        //                     <GiHamburgerMenu/>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </div>
-        //     {/* <Sidebar classToAdd={classToAdd} closeSidebar={closeSidebar}/> */}
-        // </header>
-
         <header className="header">
             <div className="container header-container">
                 <div className="header__brand">a lojinha</div>
@@ -82,7 +43,7 @@ const Header: React.FC = () => {
                                 className="header__nav__item"
                                 onClick={closeMobileMenu}
                             >
-                                Página inicial
+                                Inicio
                             </NavLink>
                             <NavLink
                                 to="#"
@@ -110,7 +71,7 @@ const Header: React.FC = () => {
                     <div className="header__cart" onClick={openSidebar}>
                         <GiShoppingCart size={30} />
                     </div>
-                    <div className="header__log" >
+                    <div className="header__log">
                         <HiUserCircle size={30} />
                         <p>Login</p>
                     </div>
@@ -126,7 +87,7 @@ const Header: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <Sidebar classToAdd={classToAdd} closeSidebar={closeSidebar}/>              
+            <Sidebar classToAdd={classToAdd} closeSidebar={closeSidebar} />
         </header>
     );
 };

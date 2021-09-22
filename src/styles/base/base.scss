@@ -6,6 +6,19 @@ button {
     cursor: pointer;
 }
 
+.section-padding {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.section-title {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 30px;
+    font-family: "Uni-Sans-Bold";
+    margin-bottom: $xl-size;
+}
+
 
 .container {
     width: 70%;

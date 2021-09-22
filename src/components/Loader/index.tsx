@@ -1,5 +1,3 @@
-import loader from '../../assets/loader.gif';
-
 const Loader: React.FC = () => {
     return (
         <div className="spinner-container">

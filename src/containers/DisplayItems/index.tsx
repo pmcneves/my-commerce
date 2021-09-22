@@ -12,10 +12,10 @@ const DisplayItems: React.FC = () => {
     console.log(storeItems);
 
     return (
-        <section className="container">
-            <div className="display">
-                <div className="display__title">
-                    <h1>lojinha</h1>
+        <section className="container ">
+            <div className="display section-padding">
+                <div className="section-title display__title">
+                    lojinha
                 </div>
                 <div className="display__items">
                     {loading ? (

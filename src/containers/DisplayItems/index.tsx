@@ -5,25 +5,35 @@ import {
 } from '../../screens/Homepage/selectors';
 import Loader from '../../components/Loader';
 import StoreItem from '../../components/StoreItem';
+import { useHistory } from 'react-router';
 
 const DisplayItems: React.FC = () => {
     const storeItems = useSelector(getStoreItems);
     const loading = useSelector(getLoadingStatus);
-    console.log(storeItems);
+    const history = useHistory();
+
+    /**
+     * navigate to specific product id
+     */
+    const navigateToItem = (id: number): void => {
+        history.push(`/products/${id}`);
+    };
 
     return (
         <section className="container ">
             <div className="display section-padding">
-                <div className="section-title display__title">
-                    lojinha
-                </div>
+                <div className="section-title display__title">lojinha</div>
                 <div className="display__items">
                     {loading ? (
                         <Loader />
                     ) : (
                         <div className="items-container">
                             {storeItems.map(item => (
-                                <div key={item.id} className="item-container">
+                                <div
+                                    key={item.id}
+                                    className="item-container"
+                                    onClick={() => navigateToItem(item.id)}
+                                >
                                     <StoreItem item={item} />
                                 </div>
                             ))}

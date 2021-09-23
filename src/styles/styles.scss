@@ -3,6 +3,9 @@
 @import './base/base.scss';
 @import './base/fonts.scss';
 
+// Screens
+@import '../screens/ItemPage/styles.scss';
+
 // Containers
 @import '../containers/Header/styles.scss';
 @import '../containers/DisplayItems/styles.scss';

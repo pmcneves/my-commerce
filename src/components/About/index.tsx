@@ -1,6 +1,6 @@
 const About: React.FC = () => {
     return (
-        <div className="about section-padding">
+        <div id="aboutus" className="about section-padding">
             <div className="container">
                 <div className="section-title">sobre nós</div>
                 <div className="about__text">

@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import homepageReducer from "../screens/Homepage/reducer";
+import itemReducer from "../screens/ItemPage/reducer";
 
 const rootReducer = combineReducers({
-    store: homepageReducer
+    store: homepageReducer,
+    product: itemReducer,
 })
 
 export default rootReducer;

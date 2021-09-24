@@ -4,6 +4,7 @@ import { HiUserCircle } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
 import Sidebar from '../../components/Sidebar';
 import { useState } from 'react';
+import { NavHashLink } from 'react-router-hash-link';
 
 const Header: React.FC = () => {
     /**
@@ -24,10 +25,10 @@ const Header: React.FC = () => {
      */
     const [isBurgerClicked, setIsBurgetClicked] = useState<boolean>(false);
     const handleClick = (): void => setIsBurgetClicked(!isBurgerClicked);
-    const closeMobileMenu = (): void  => setIsBurgetClicked(false);
+    const closeMobileMenu = (): void => setIsBurgetClicked(false);
 
     return (
-        <header className="header">
+        <header id="top" className="header">
             <div className="container header-container">
                 <div className="header__brand">a lojinha</div>
                 <div className="header__container">
@@ -37,34 +38,34 @@ const Header: React.FC = () => {
                                 isBurgerClicked && 'active'
                             }`}
                         >
-                            <NavLink
-                                to="#"
+                            <NavHashLink
+                                smooth
+                                to="#top"
                                 className="header__nav__item"
-                                onClick={closeMobileMenu}
                             >
                                 Inicio
-                            </NavLink>
-                            <NavLink
-                                to="#"
+                            </NavHashLink>
+                            <NavHashLink
+                                smooth
+                                to="#store"
                                 className="header__nav__item"
-                                onClick={closeMobileMenu}
                             >
                                 Loja
-                            </NavLink>
-                            <NavLink
-                                to="#"
+                            </NavHashLink>
+                            <NavHashLink
+                                smooth
+                                to="/#aboutus"
                                 className="header__nav__item"
-                                onClick={closeMobileMenu}
                             >
                                 Sobre
-                            </NavLink>
-                            <NavLink
-                                to="#"
+                            </NavHashLink>
+                            <NavHashLink
+                                smooth
+                                to="#contact"
                                 className="header__nav__item"
-                                onClick={closeMobileMenu}
                             >
                                 Contacto
-                            </NavLink>
+                            </NavHashLink>
                         </ul>
                     </nav>
                     <div className="header__cart" onClick={openSidebar}>

@@ -20,7 +20,7 @@ const DisplayItems: React.FC = () => {
     };
 
     return (
-        <section className="container ">
+        <section id="store" className="container ">
             <div className="display section-padding">
                 <div className="section-title display__title">lojinha</div>
                 <div className="display__items">

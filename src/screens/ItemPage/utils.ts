@@ -1,16 +1,8 @@
-
-export const GET_ITEM = 'GET_ITEM';
-export const SET_ITEM = 'SET_ITEM';
+export const GET_ITEM = "GET_ITEM";
+export const SET_ITEM = "SET_ITEM";
 
 export const starRating = (rating: number): number[] => {
-    const starArr: number [] = [];
-    const roundedNum = Math.round(rating);
-    for (let i = 0; i <= 4; i++) {
-        if (i+1 <= roundedNum) {
-            starArr.push(1);
-        } else {
-            starArr.push(0);
-        }
-    }
-    return starArr;
+  const starArr: number[] = [0, 0, 0, 0, 0];
+  const roundedNum = Math.round(rating);
+  return starArr.map((_, i) => (i + 1 <= roundedNum ? 1 : 0));
 };

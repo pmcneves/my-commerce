@@ -14,7 +14,7 @@ const AppRouter: React.FC = () => {
                 <Route path="/" component={Homepage} exact />
                 <Route path="/products/:id" component={ItemPage} />
             </Switch>
-            <ScrollButton/>
+            {/* <ScrollButton/> */}
         </BrowserRouter>
     );
 };

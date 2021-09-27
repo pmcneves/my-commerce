@@ -1,8 +1,8 @@
 import { call, put, takeLatest } from "@redux-saga/core/effects";
 import { SagaIterator } from "@redux-saga/types";
+import axios from "axios";
 import { setItem } from "./action";
 import { GET_ITEM } from "./utils";
-
 
 type GetItemParams = {
     id: string,
@@ -11,7 +11,7 @@ type GetItemParams = {
 function* getItem({id}: GetItemParams): SagaIterator {
     try {
         const dataJson = yield call(() =>
-            fetch(`https://fakestoreapi.com/products/${id}`).then(res => res.json())
+            axios.get(`https://fakestoreapi.com/products/${id}`).then(res => res.data)
         );
         yield put(setItem(dataJson));
     } catch (e) {

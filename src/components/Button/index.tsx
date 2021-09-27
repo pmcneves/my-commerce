@@ -1,13 +1,12 @@
 interface ButtonModel {
-  children: string;
-  classes?: string;
+  children: JSX.Element | string;
+  classes: string;
+  fn?: () => void
 }
 
-const Button: React.FC<ButtonModel> = ({ children, classes }: ButtonModel) => {
+const Button: React.FC<ButtonModel> = ({ children, classes, fn }: ButtonModel) => {
   return (
-    <div>
-      <button className={`button ${classes}`}>{children}</button>
-    </div>
+      <button onClick={fn} className={`button ${classes}`}>{children}</button>
   );
 };
 

@@ -1,16 +1,24 @@
 .product {
   display: flex;
   color: $gold;
-  min-height: 650px;
+  min-height: 580px;
   &-left,
   &-right {
     margin: 0 $m-size;
     width: 50%;
   }
+  &-left {
+    display: flex;
+    flex-direction: column;
+  }
   &__image {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
     img {
-      width: 100%;
-      height: 100%;
+      min-height: 400px;
+      max-height: 430px;
       object-fit: contain;
     }
   }
@@ -80,6 +88,7 @@
     width: 100%;
     background-color: $gold;
     &:hover {
+      transition: background-color 0.2s ease-in-out;
       background-color: $dark-gold;
     }
   }
@@ -87,8 +96,18 @@
     width: 100%;
     background-color: $off-black;
     &:hover {
+      transition: background-color 0.2s ease-in-out;
       background-color: $off-black-hover;
     }
+  }
+}
+
+.go-back-btn {
+  text-align: left;
+  color: $gold;
+  &:hover {
+    transition: color 0.2s ease-in-out;
+    color: $dark-gold;
   }
 }
 

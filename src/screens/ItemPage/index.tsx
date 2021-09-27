@@ -1,13 +1,15 @@
 import { useEffect } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import Magnifier from "react-magnifier";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import Button from "../../components/Button";
 import Loader from "../../components/Loader";
 import RefundPolicy from "../../components/RefundPolicy";
 import { getItem } from "./action";
 import { getLoadingStatus, getStoreItem } from "./selectors";
 import { starRating } from "./utils";
+import { BsArrowLeft } from "react-icons/bs";
 
 type ItemParams = {
   id: string;
@@ -15,6 +17,7 @@ type ItemParams = {
 
 const ItemPage: React.FC = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const { id } = useParams<ItemParams>();
   const loading = useSelector(getLoadingStatus);
   const item = useSelector(getStoreItem);
@@ -36,6 +39,13 @@ const ItemPage: React.FC = () => {
     reference = `0${item.id}`;
   }
 
+  /**
+   * go to homepage
+   */
+  const goBack = (): void => {
+    history.push('/')
+  }
+
   return (
     <main className="section-padding">
       <div className="container">
@@ -44,9 +54,11 @@ const ItemPage: React.FC = () => {
         ) : (
           <div className="product">
             <div className="product-left">
-              <Button>dsad</Button>
+              <Button classes={'go-back-btn'} fn={goBack}>
+                <BsArrowLeft size={40}/>
+              </Button>
               <div className="product__image">
-                <img src={item.image} />
+                <Magnifier src={item.image} />
               </div>
             </div>
             <div className="product-right">
@@ -71,10 +83,10 @@ const ItemPage: React.FC = () => {
                     </ul>
                   </div>
                 </div>
-              <div className="product__quantity">
-                <div className="product__label">Quantity</div>
-                <input type="number" />
-              </div>
+                <div className="product__quantity">
+                  <div className="product__label">Quantity</div>
+                  <input type="number" />
+                </div>
               </div>
               <div className="product__btns">
                 <div className="product__btns__add">

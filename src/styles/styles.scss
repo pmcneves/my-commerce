@@ -3,21 +3,22 @@
 @import './base/base.scss';
 @import './base/fonts.scss';
 
-// Screens
-@import '../screens/ItemPage/styles.scss';
-
-// Containers
-@import '../containers/Header/styles.scss';
-@import '../containers/DisplayItems/styles.scss';
-
 
 // Components
+@import '../components/Button/styles.scss';
 @import '../components/Sidebar/styles.scss';
 @import '../components/HomepageCaroussel/styles.scss';
 @import '../components/AdditionalInfo/styles.scss';
 @import '../components/Loader/styles.scss';
 @import '../components/StoreItem/styles.scss';
 @import '../components/About/styles.scss';
-@import '../components/Button/styles.scss';
 @import '../components/RefundPolicy/styles.scss';
 @import '../components/Footer/styles.scss';
+
+// Containers
+@import '../containers/Header/styles.scss';
+@import '../containers/DisplayItems/styles.scss';
+
+// Screens
+@import '../screens/ItemPage/styles.scss';
+

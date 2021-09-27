@@ -1,0 +1,26 @@
+footer {
+    background-color: $gold;
+    padding: $m-size 0;
+    color: $off-white;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+}
+
+.author {
+position: relative;
+margin-right: $xl-size;
+&::after {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    content: "";
+    right: -11px;
+    width: 1px;
+    height: 12px;
+    background-color: $off-white;
+}
+}
+

@@ -53,6 +53,7 @@ const ItemPage: React.FC = () => {
               <div className="product__title">{item.title}</div>
               <div className="product__id">Reference No. #ALOJ{reference}</div>
               <div className="product__price">{item.price}€</div>
+              <div className="product__description">{item.description}</div>
               <div className="product__classification">
                 <div className="product__classification__category">
                   <div className="product__label">Category</div>
@@ -70,8 +71,11 @@ const ItemPage: React.FC = () => {
                     </ul>
                   </div>
                 </div>
+              <div className="product__quantity">
+                <div className="product__label">Quantity</div>
+                <input type="number" />
               </div>
-              <div className="product__description">{item.description}</div>
+              </div>
               <div className="product__btns">
                 <div className="product__btns__add">
                   <Button classes="product__btn__add">Add to Cart</Button>

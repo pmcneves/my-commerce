@@ -1,8 +1,8 @@
 const RefundPolicy: React.FC = () => {
   return (
-    <div>
-      <h1>Refund Policy</h1>
-      <p>
+    <div className="container section-padding refund">
+      <div className="refund__title">Refund Policy</div>
+      <p className="refund__text">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat minus
         consectetur delectus laborum, sit aspernatur ad, tenetur explicabo
         facilis provident nulla dolores ex eveniet at odit assumenda unde.

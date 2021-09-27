@@ -1,42 +1,103 @@
 .product {
+  display: flex;
+  color: $gold;
+  min-height: 650px;
+  &-left,
+  &-right {
+    margin: 0 $m-size;
+    width: 50%;
+  }
+  &__image {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &__title {
+    color: $dark-gold;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: justify;
+  }
+  &__id {
+    font-size: 20px;
+  }
+  &__price {
+    color: $dark-gold;
+    margin: $l-size 0;
+    font-size: 35px;
+  }
+  &__category {
+    text-transform: capitalize;
+  }
+  &__classification {
     display: flex;
+    justify-content: space-evenly;
+    &__category {
+      font-size: 20px;
+    }
+    &__rate {
+      &__reviews {
+        font-style: italic;
+        margin: auto 0;
+      }
+      &__stars ul {
+        color: #ffc107;
+        display: flex;
+      }
+      &__stars li {
+        display: flex;
+      }
+    }
+  }
+  &__label {
+    margin-right: $s-size;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: $dark-gold;
+  }
+  &__description {
+    margin: 35px 0;
+    font-family: $GaramondPro;
     color: $gold;
-    &-left,
-    &-right {
-        width: 50%;
+    font-size: 20px;
+    text-align: justify;
+  }
+}
+
+.product__btns {
+  width: 100%;
+  &__add {
+    margin-bottom: $m-size;
+  }
+}
+
+.product__btn {
+  &__add {
+    width: 100%;
+    background-color: $gold;
+    &:hover {
+      background-color: $dark-gold;
     }
-    &__image {
-        height: 360px;
-        width: 250px;
-        margin: 0 auto $xl-size;
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
+  }
+  &__buy {
+    width: 100%;
+    background-color: $off-black;
+    &:hover {
+      background-color: $off-black-hover;
     }
-    &__description {
-        font-family: $GaramondPro;
-        color: $gold;
-        font-size: 20px;
-    }
-    &__title {
-        color: $gold-bold;
-        font-weight: bold;
-        font-size: 40px;
-    }
-    &__id {
-        font-size: 25px;
-    }
-    &__price {
-        margin: $l-size 0;
-        font-size: 35px;
-    }
-    
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    .product {
-        display: block;
+  .product {
+    display: block;
+    &-left,
+    &-right {
+      width: 100%;
+      margin: 0;
     }
+  }
 }

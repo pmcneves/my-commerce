@@ -6,9 +6,12 @@ import sagas from "./sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 const composeEnhancer = () => {
+  console.log(process.env.NODE_ENV)
   if (process.env.NODE_ENV === "production") {
+    console.log('1')
     return compose(applyMiddleware(sagaMiddleware));
   } else {
+    console.log('2')
     return composeWithDevTools(applyMiddleware(sagaMiddleware));
   }
 };

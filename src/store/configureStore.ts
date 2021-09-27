@@ -5,7 +5,7 @@ import sagas from "./sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 const composeEnhancer =
-  (process.env.NODE_ENV !== 'production' &&
+  (process.env.NODE_ENV !== 'development' &&
     typeof window !== 'undefined' &&
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||

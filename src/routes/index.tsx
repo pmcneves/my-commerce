@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import Header from '../containers/Header';
 import Homepage from '../screens/Homepage';
 import ItemPage from '../screens/ItemPage';
+import Login from '../screens/Login';
 
 const AppRouter: React.FC = () => {
     return (
@@ -12,6 +13,7 @@ const AppRouter: React.FC = () => {
             <Header />
             <Switch>
                 <Route path="/" component={Homepage} exact />
+                {/* <Route path="/login" component={Login} /> */}
                 <Route path="/products/:id" component={ItemPage} />
             </Switch>
             <Footer/>

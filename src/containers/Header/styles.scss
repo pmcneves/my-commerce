@@ -22,10 +22,13 @@
             font-family: $GaramondPro;
             color: $off-white;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 18px;
             margin: 0 auto;
             &:not(:last-child) {
                 padding-right: $m-size;
+            }
+            &:hover {
+                font-weight: bold;
             }
         }
     }
@@ -40,9 +43,17 @@
     &__log {
         display: flex;
         align-items: center;
-        p {
-            margin-left: $s-size;
+        &__btn {
+            background: none;
+            border: none;
+            font-family: $GaramondPro;
+            font-size: 18px;
+            color: $off-white;
+            &:hover {
+                font-weight: bold;
+            }
         }
+
     }
     &__burger__container {
         display: none;

@@ -4,6 +4,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import Sidebar from "../../components/Sidebar";
 import { useState } from "react";
 import { NavHashLink } from "react-router-hash-link";
+import { useHistory } from "react-router";
 
 const Header: React.FC = () => {
   /**
@@ -25,6 +26,14 @@ const Header: React.FC = () => {
   const [isBurgerClicked, setIsBurgetClicked] = useState<boolean>(false);
   const handleClick = (): void => setIsBurgetClicked(!isBurgerClicked);
 
+  /**
+   * login handler
+   */
+  //  const history = useHistory();
+  // const pushToLogin = (): void => {
+  //   history.push("/login");
+  // }
+
   return (
     <header id="top" className="header">
       <div className="container header-container">
@@ -32,17 +41,17 @@ const Header: React.FC = () => {
         <div className="header__container">
           <nav className="header__nav">
             <ul className={`header__nav__items ${isBurgerClicked && "active"}`}>
-              <NavHashLink smooth to="#top" className="header__nav__item">
-                Inicio
+              <NavHashLink smooth to="/#top" className="header__nav__item">
+                Home
               </NavHashLink>
-              <NavHashLink smooth to="#store" className="header__nav__item">
-                Loja
+              <NavHashLink smooth to="/#store" className="header__nav__item">
+                Store
               </NavHashLink>
               <NavHashLink smooth to="/#aboutus" className="header__nav__item">
-                Sobre
+                About us
               </NavHashLink>
-              <NavHashLink smooth to="#contact" className="header__nav__item">
-                Contacto
+              <NavHashLink smooth to="/#contact" className="header__nav__item">
+                Contacts
               </NavHashLink>
             </ul>
           </nav>
@@ -50,8 +59,8 @@ const Header: React.FC = () => {
             <GiShoppingCart size={30} />
           </div>
           <div className="header__log">
-            <HiUserCircle size={30} />
-            <p>Login</p>
+            {/* <HiUserCircle size={30} /> */}
+            <button className="header__log__btn" >Login</button>
           </div>
           <div className="header__burger__container" onClick={handleClick}>
             {isBurgerClicked ? (

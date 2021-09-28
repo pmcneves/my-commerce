@@ -1,0 +1,17 @@
+.table-header-row {
+  text-align: left;
+}
+
+.table-row {
+    margin: $l-size 0;
+}
+
+.image-container {
+  width: 100px;
+  height: 100px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}

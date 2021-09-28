@@ -1,10 +1,8 @@
 import { GiShoppingCart, GiHamburgerMenu } from "react-icons/gi";
-import { HiUserCircle } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 import Sidebar from "../../components/Sidebar";
 import { useState } from "react";
 import { NavHashLink } from "react-router-hash-link";
-import { useHistory } from "react-router";
 
 const Header: React.FC = () => {
   /**
@@ -29,10 +27,6 @@ const Header: React.FC = () => {
   /**
    * login handler
    */
-  //  const history = useHistory();
-  // const pushToLogin = (): void => {
-  //   history.push("/login");
-  // }
 
   return (
     <header id="top" className="header">

@@ -1,5 +1,10 @@
-import { useEffect } from "react";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { useEffect, useState } from "react";
+import {
+  AiFillStar,
+  AiOutlineMinus,
+  AiOutlinePlus,
+  AiOutlineStar,
+} from "react-icons/ai";
 import Magnifier from "react-magnifier";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router";
@@ -43,8 +48,20 @@ const ItemPage: React.FC = () => {
    * go to homepage
    */
   const goBack = (): void => {
-    history.push('/')
-  }
+    history.push("/");
+  };
+
+  /**
+   * number of items handlers
+   */
+  const [numberOfItems, setNumberOfItems] = useState(1);
+  let btnVisibility = "";
+  if (numberOfItems <= 1) btnVisibility = "minus-btn-hidden";
+  const numberOfItemsHandler = (num: string): void => setNumberOfItems(+num);
+  const addOneToQuantity = (): void =>
+    setNumberOfItems((prevState) => prevState + 1);
+  const removeOneFromQuantity = (): void =>
+    setNumberOfItems((prevState) => prevState - 1);
 
   return (
     <main className="section-padding">
@@ -54,8 +71,8 @@ const ItemPage: React.FC = () => {
         ) : (
           <div className="product">
             <div className="product-left">
-              <Button classes={'go-back-btn'} fn={goBack}>
-                <BsArrowLeft size={40}/>
+              <Button classes={"go-back-btn"} fn={goBack}>
+                <BsArrowLeft size={40} />
               </Button>
               <div className="product__image">
                 <Magnifier src={item.image} />
@@ -64,7 +81,7 @@ const ItemPage: React.FC = () => {
             <div className="product-right">
               <div className="product__title">{item.title}</div>
               <div className="product__id">Reference No. #ALOJ{reference}</div>
-              <div className="product__price">{item.price}€</div>
+              <div className="product__price">{item.price.toFixed(2)}€</div>
               <div className="product__description">{item.description}</div>
               <div className="product__classification">
                 <div className="product__classification__category">
@@ -83,9 +100,26 @@ const ItemPage: React.FC = () => {
                     </ul>
                   </div>
                 </div>
-                <div className="product__quantity">
+                <div className="product__classification__quantity">
                   <div className="product__label">Quantity</div>
-                  <input type="number" />
+                  <div className="product__classification__quantity__value">
+                    <button
+                      className={btnVisibility}
+                      onClick={removeOneFromQuantity}
+                      disabled={numberOfItems <= 1}
+                    >
+                      <AiOutlineMinus size={20} />
+                    </button>
+                    <input
+                      type="number"
+                      min="1"
+                      value={numberOfItems}
+                      onChange={(e) => numberOfItemsHandler(e.target.value)}
+                    />
+                    <button onClick={addOneToQuantity}>
+                      <AiOutlinePlus size={20} />
+                    </button>
+                  </div>
                 </div>
               </div>
               <div className="product__btns">

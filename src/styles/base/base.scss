@@ -1,5 +1,10 @@
 body {
-    font-family: $GaramondPro
+    font-family: $GaramondPro;
+}
+
+#root {
+    position: relative;
+    min-height: 100vh;
 }
 
 button {
@@ -33,12 +38,12 @@ button {
         width: 100%;
     }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
     .container {
         width: 90%;
     }
 }
-@media only screen and (max-width: 992px) {
+@media only screen and (min-width: 992px) {
     .container {
         width: 80%;
     }

@@ -5,8 +5,6 @@ export default (): number =>
     (request: AxiosRequestConfig) => {
       const newHeaders = { ...request.headers, token: "1234" };
       request = { ...request, headers: newHeaders };
-      console.log(typeof request);
-      console.log(process.env.NODE_ENV);
       return request;
     },
     (error) => {

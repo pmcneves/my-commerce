@@ -5,7 +5,7 @@ import AppRouter from "./routes";
 import { fetchDataFromApi } from "./screens/Homepage/actions";
 import configureStore from "./store/configureStore";
 import "./styles/styles.scss";
-import httpInterceptor from "./httpInterceptor";
+import httpInterceptor from "./http/httpInterceptor";
 
 httpInterceptor();
 

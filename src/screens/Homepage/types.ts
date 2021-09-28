@@ -16,6 +16,7 @@ export type storeItem = {
         rate: number;
         count: number;
     };
+    quantity?: number;
 };
 
 type FetchDataType = {

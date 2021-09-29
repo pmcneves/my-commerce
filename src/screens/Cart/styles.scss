@@ -1,9 +1,10 @@
-.table-header-row {
-  text-align: left;
-}
-
-.table-row {
-    margin: $l-size 0;
+.table {
+  width: 100%;
+  &__header-row {
+    text-align: left;
+    font-size: 20px;
+    color: $dark-gold;
+  }
 }
 
 .image-container {

@@ -1,0 +1,77 @@
+.create-container {
+  min-height: 921px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.new-account {
+  background-color: $off-white;
+  box-shadow: 0px 0px 19px 3px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: $l-size;
+  &__header {
+    width: 100%;
+    font-size: 35px;
+    color: $dark-gold;
+    text-align: center;
+  }
+  &-left,
+  &-right {
+    width: 45%;
+  }
+  form {
+    padding: $xl-size;
+  }
+  &__form-inputs {
+    display: flex;
+    flex-direction: column;
+    &:not(:first-child) {
+      margin-top: $m-size;
+    }
+  }
+  &__label {
+    color: $dark-gold;
+    font-size: 18px;
+  }
+  input {
+    padding: $s-size;
+    &:focus-visible {
+      outline: 1px solid $dark-gold;
+    }
+  }
+  &__btn {
+    margin-top: $xl-size;
+    background: none;
+    border: none;
+    background-color: $dark-gold;
+    padding: $m-size 0;
+    text-transform: uppercase;
+    color: $off-white;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color .1s ease-in-out;
+    &:hover {
+        background-color: $gold;
+    }
+  }
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .new-account {
+    &-left,
+    &-right {
+      width: 100%;
+    }
+    &__password {
+      margin-top: $m-size;
+    }
+  }
+  .form-container {
+    display: block;
+  }
+}

@@ -1,5 +1,6 @@
 body {
     font-family: $GaramondPro;
+    background-color: $light-gold;
 }
 
 #root {
@@ -10,8 +11,6 @@ body {
 button {
     cursor: pointer;
 }
-
-
 
 .section-title {
     text-transform: uppercase;

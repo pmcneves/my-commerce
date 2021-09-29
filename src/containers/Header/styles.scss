@@ -1,115 +1,131 @@
 .header {
-    background: $gold;
-    height: 80px;
-    display: flex;
-    color: $off-white;
+  background: $gold;
+  height: 80px;
+  display: flex;
+  color: $off-white;
 
-    &-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__brand {
+    font-family: $Uni-Sans-Bold;
+    font-size: 25px;
+  }
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+  &__nav {
+    &__item {
+      font-family: $GaramondPro;
+      color: $off-white;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 auto;
+      &:not(:last-child) {
+        padding-right: $m-size;
+      }
+      &:hover {
+        font-weight: bold;
+      }
     }
-    &__brand {
-        font-family: $Uni-Sans-Bold;
-        font-size: 25px;
+  }
+  &__cart {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    padding-right: $xl-size;
+    padding-left: $xl-size;
+  }
+  &__log {
+    display: flex;
+    align-items: center;
+    &__btn {
+      background: none;
+      border: none;
+      font-family: $GaramondPro;
+      font-size: 18px;
+      color: $off-white;
+      &:hover {
+        font-weight: bold;
+      }
     }
-    &__container {
-        display: flex;
-        align-items: center;
-    }
+  }
+  &__burger__container {
+    display: none;
+  }
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s;
+  &-active {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
     &__nav {
-        &__item {
-            font-family: $GaramondPro;
-            color: $off-white;
-            text-decoration: none;
-            font-size: 18px;
-            margin: 0 auto;
-            &:not(:last-child) {
-                padding-right: $m-size;
-            }
-            &:hover {
-                font-weight: bold;
-            }
+      &__items {
+        display: flex;
+        width: 100%;
+        min-height: 160px;
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        transition: all 0.5s ease;
+        flex-direction: column;
+        &.active {
+          background: $gold;
+          left: 0;
+          opacity: 1;
+          transition: all 0.5s ease;
+          z-index: 1;
+          align-content: center;
         }
+      }
+      &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10vw;
+        width: 100%;
+        padding: $l-size 0px;
+        &:not(:last-child) {
+          padding-right: 0;
+          border-bottom: 2px solid $off-white;
+        }
+      }
     }
     &__cart {
-        display: flex;
-        align-items: center;
-        background: none;
-        border: none;
-        padding-right: $xl-size;
-        padding-left: $xl-size;
+      padding: 0;
     }
     &__log {
-        display: flex;
-        align-items: center;
-        &__btn {
-            background: none;
-            border: none;
-            font-family: $GaramondPro;
-            font-size: 18px;
-            color: $off-white;
-            &:hover {
-                font-weight: bold;
-            }
-        }
-
+      padding: 0 $xl-size;
     }
-    &__burger__container {
-        display: none;
+    &__burger {
+      &__container {
+        display: block;
+      }
+      &-icon {
+        width: 30px;
+        height: 30px;
+      }
     }
-}
-@media (max-width: 768px) {
-    .header {
-        &__nav {
-            &__items {
-                display: flex;
-                width: 100%;
-                min-height: 160px;
-                position: absolute;
-                top: 80px;
-                left: -100%;
-                transition: all 0.5s ease;
-                flex-direction: column;
-                &.active {
-                    background: $gold;
-                    left: 0;
-                    opacity: 1;
-                    transition: all 0.5s ease;
-                    z-index: 1;
-                    align-content: center;
-                }
-            }
-            &__item {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: 10vw;
-                width: 100%;
-                padding: $l-size 0px;
-                &:not(:last-child) {
-                    padding-right: 0;
-                    border-bottom: 2px solid $off-white;
-                }
-            }
-        }
-        &__cart {
-            padding: 0;
-        }
-        &__log {
-            padding: 0 $xl-size;
-            p {
-                display: none;
-            }
-        }
-        &__burger {
-            &__container {
-                display: block;
-            }
-            &-icon {
-                width: 30px;
-                height: 30px;
-            }
-        }
-    }
+  }
 }

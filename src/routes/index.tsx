@@ -6,6 +6,7 @@ import Header from "../containers/Header";
 import Cart from "../screens/Cart";
 import Homepage from "../screens/Homepage";
 import ItemPage from "../screens/ItemPage";
+import CreateAccount from "../screens/CreateAccount";
 
 const AppRouter: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const AppRouter: React.FC = () => {
         <Route path="/" component={Homepage} exact />
         <Route path="/cart" component={Cart} />
         <Route path="/products/:id" component={ItemPage} />
+        <Route path="/create-account" component={CreateAccount} />
       </Switch>
       <Footer />
     </BrowserRouter>

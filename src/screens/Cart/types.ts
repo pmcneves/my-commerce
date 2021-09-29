@@ -15,3 +15,4 @@ export type SetCartAction = {
 };
 
 export type CartActions = GetCartAction | SetCartAction;
+

@@ -1,0 +1,78 @@
+.login-popin-container {
+  background-color: $off-white;
+  position: absolute;
+  top: 80px;
+  right: 10%;
+  z-index: 10;
+  overflow: hidden;
+  height: 0;
+  transition: height 0.5s ease;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.login-popin {
+  padding: $l-size;
+  &__header {
+    font-size: 25px;
+    color: $dark-gold;
+    text-align: center;
+  }
+  &__field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $m-size;
+  }
+  &__label {
+    color: $dark-gold;
+    font-size: 18px;
+  }
+  &__input {
+    padding: $s-size;
+    &:focus-visible {
+      outline: 1px solid $dark-gold;
+    }
+  }
+  &__btns {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__newuser {
+    text-align: center;
+    margin-top: $m-size;
+    color: $dark-gold;
+  }
+}
+
+.btn-popin {
+  padding: $s-size $m-size;
+  border: none;
+  background: none;
+  color: $off-white;
+  transition: background-color 0.1s ease-in-out;
+  &-close {
+    width: 49%;
+    background-color: $off-black;
+    &:hover {
+      background-color: $off-black-hover;
+    }
+  }
+  &-log {
+    width: 49%;
+    background-color: $dark-gold;
+    &:hover {
+      background-color: $gold;
+    }
+  }
+  &-new {
+    margin-top: $s-size;
+    background-color: $dark-gold;
+    &:hover {
+      background-color: $gold;
+    }
+  }
+}
+
+.loginpopin-open {
+  height: 242px;
+}

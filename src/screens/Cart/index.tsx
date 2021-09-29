@@ -1,14 +1,13 @@
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
-import { useTable } from "react-table";
+import { Column, useTable } from "react-table";
 import { storeItem } from "../Homepage/types";
 import { cartSlice } from "./selectors";
 
 const Cart: React.FC = () => {
   const cart = useSelector(cartSlice);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const columns = useMemo<any>(
+  const columns = useMemo<Column<storeItem>[]>(
     () => [
       {
         Header: "",
@@ -35,18 +34,31 @@ const Cart: React.FC = () => {
       {
         Header: "Total",
         accessor: (d: storeItem) => d.price * (d.quantity as number),
+        Footer: (info) => {
+          const total = useMemo(
+            () => info.rows.reduce((sum, row) => row.values.Total + sum, 0),
+            [info.rows]
+          );
+          return <>{total}</>;
+        },
       },
     ],
     []
   );
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data: cart });
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+    footerGroups,
+  } = useTable({ columns, data: cart });
 
   return (
     <div className="container">
       <div className="cart-title">My cart</div>
-      <table {...getTableProps()} className="section-padding">
+      <table {...getTableProps()} className="section-padding table">
         <thead>
           {headerGroups.map((headerGroup) => {
             const { key, ...restHeaderGroupProps } =
@@ -55,7 +67,7 @@ const Cart: React.FC = () => {
               <tr
                 key={key}
                 {...restHeaderGroupProps}
-                className="table-header-row"
+                className="table__header-row"
               >
                 {headerGroup.headers.map((column) => {
                   const { key, ...restColumn } = column.getHeaderProps();
@@ -87,6 +99,25 @@ const Cart: React.FC = () => {
             );
           })}
         </tbody>
+        <tfoot>
+          {footerGroups.map((group) => {
+            const { key, ...restGetFooterGroupProps } =
+              group.getFooterGroupProps();
+            return (
+              <tr key={key} {...restGetFooterGroupProps}>
+                {group.headers.map((column) => {
+                  const { key, ...restGetFooterProps } =
+                    column.getFooterProps();
+                  return (
+                    <td key={key} {...restGetFooterProps}>
+                      {column.render("Footer")}
+                    </td>
+                  );
+                })}
+              </tr>
+            );
+          })}
+        </tfoot>
       </table>
     </div>
   );

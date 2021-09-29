@@ -14,6 +14,7 @@
 @import '../components/About/styles.scss';
 @import '../components/RefundPolicy/styles.scss';
 @import '../components/Footer/styles.scss';
+@import '../components/LoginPopin/styles.scss';
 
 // Containers
 @import '../containers/Header/styles.scss';
@@ -21,6 +22,6 @@
 
 // Screens
 @import '../screens/ItemPage/styles.scss';
-@import '../screens/Login/styles.scss';
+@import '../screens/CreateAccount/styles.scss';
 @import '../screens/Cart/styles.scss';
 

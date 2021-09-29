@@ -3,11 +3,9 @@ import { AiOutlineClose } from "react-icons/ai";
 import Sidebar from "../../components/Sidebar";
 import { useState } from "react";
 import { NavHashLink } from "react-router-hash-link";
-import { useHistory } from "react-router";
 import LoginPopin from "../../components/LoginPopin";
 
 const Header: React.FC = () => {
-  const history = useHistory();
 
   /**
    * sidebar handling
@@ -32,11 +30,21 @@ const Header: React.FC = () => {
    * login handler
    */
 
-  const [isLoginPopinVisible, setIsLoginPopinVisible] =
-    useState<boolean>(false);
-  const loginBtnHandler = (): void =>
+  const [isLoginPopinVisible, setIsLoginPopinVisible] = useState(false);
+  const loginBtnHandler = (): void => {
     setIsLoginPopinVisible(!isLoginPopinVisible);
-  // const loginBtnHandler = () => history.push("/login");
+    setIsOverlayVisible(true)
+  };
+
+  /**
+   * overlay handler
+   */
+  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+  const closeOverlay = (): void => {
+    setIsBurgetClicked(false);
+    setIsLoginPopinVisible(false);
+    setIsOverlayVisible(false);
+  };
 
   return (
     <header id="top" className="header">
@@ -59,15 +67,21 @@ const Header: React.FC = () => {
               </NavHashLink>
             </ul>
           </nav>
+          <div
+            className={`overlay ${isOverlayVisible ? "overlay-active" : ""}`}
+            onClick={closeOverlay}
+          />
           <div className="header__cart" onClick={openSidebar}>
             <GiShoppingCart size={30} />
           </div>
           <div className="header__log">
-            {/* <HiUserCircle size={30} /> */}
             <button className="header__log__btn" onClick={loginBtnHandler}>
               Login
             </button>
-            <LoginPopin loginClassToAdd={isLoginPopinVisible ? "loginpopin-open" : ""} setIsLoginPopinVisible={setIsLoginPopinVisible} />
+            <LoginPopin
+              loginClassToAdd={isLoginPopinVisible ? "loginpopin-open" : ""}
+              setIsLoginPopinVisible={setIsLoginPopinVisible}
+            />
           </div>
           <div className="header__burger__container" onClick={handleClick}>
             {isBurgerClicked ? (

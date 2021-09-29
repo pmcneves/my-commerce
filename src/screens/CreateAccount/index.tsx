@@ -1,6 +1,11 @@
 import { useState, SyntheticEvent } from "react";
+import { useDispatch } from "react-redux";
+import { startCreateAccount } from "./actions";
 
 const CreateAccount: React.FC = () => {
+  const dispatch = useDispatch();
+
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -23,7 +28,7 @@ const CreateAccount: React.FC = () => {
       address: address,
       phone: phoneNumber,
     };
-    console.log(data);
+    dispatch(startCreateAccount(data))
   };
 
   return (

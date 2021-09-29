@@ -1,15 +1,16 @@
 import { MouseEvent } from "react";
 import { useHistory } from "react-router";
 
-interface LoginPopin {
+interface LoginPopinProps{
   loginClassToAdd: string;
   setIsLoginPopinVisible: (isLoginPopinVisible: boolean) => void;
+
 }
 
-const LoginPopin: React.FC<LoginPopin> = ({
+const LoginPopin: React.FC<LoginPopinProps> = ({
   loginClassToAdd,
   setIsLoginPopinVisible,
-}: LoginPopin) => {
+}: LoginPopinProps) => {
   const history = useHistory();
 
   const goToSignUpPage = (e: MouseEvent<HTMLButtonElement>): void => {

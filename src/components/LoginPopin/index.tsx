@@ -1,27 +1,28 @@
 import { MouseEvent } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
+import { loginPopinToggler } from "../../store/actions/headerTogglesActions";
 
 interface LoginPopinProps{
   loginClassToAdd: string;
-  setIsLoginPopinVisible: (isLoginPopinVisible: boolean) => void;
 
 }
 
 const LoginPopin: React.FC<LoginPopinProps> = ({
   loginClassToAdd,
-  setIsLoginPopinVisible,
 }: LoginPopinProps) => {
   const history = useHistory();
+  const dispatch = useDispatch()
 
   const goToSignUpPage = (e: MouseEvent<HTMLButtonElement>): void => {
     e.preventDefault();
     history.push("/create-account");
-    setIsLoginPopinVisible(false);
+    dispatch(loginPopinToggler())
   };
 
   const closeLoginPopinBtnHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setIsLoginPopinVisible(false);
+    dispatch(loginPopinToggler())
   };
 
   return (

@@ -1,14 +1,14 @@
 type SidebarProps = {
     classToAdd: string;
-    closeSidebar: () => void
+    sidebarHandler: () => void
 };
 
-const Sidebar: React.FC<SidebarProps> = ({ classToAdd, closeSidebar }: SidebarProps) => {
+const Sidebar: React.FC<SidebarProps> = ({ classToAdd, sidebarHandler }: SidebarProps) => {
     return (
         <div className={`${classToAdd} sidenav`}>
             <div className="sidenav__header">
                 <h1>Cart</h1>
-                <a onClick={closeSidebar} className="closebtn">
+                <a onClick={sidebarHandler} className="closebtn">
                     &times;
                 </a>
             </div>

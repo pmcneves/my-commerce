@@ -7,11 +7,13 @@ import Cart from "../screens/Cart";
 import Homepage from "../screens/Homepage";
 import ItemPage from "../screens/ItemPage";
 import CreateAccount from "../screens/CreateAccount";
+import Overlay from "../components/Overlay";
 
 const AppRouter: React.FC = () => {
   return (
     <BrowserRouter>
       <Header />
+      <Overlay />
       <Switch>
         <Route path="/" component={Homepage} exact />
         <Route path="/cart" component={Cart} />

@@ -70,7 +70,6 @@ const Header: React.FC = () => {
 
   return (
     <header
-      id="top"
       className={`header ${
         activatedScrollEffect ? "header__scroll-effect" : ""
       }`}

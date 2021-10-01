@@ -1,5 +1,6 @@
 .container-padding {
     padding-top: 80px;
+    min-height: 100vh;
     transition: padding-top 0.1s ease-in-out;
     &__header-height-change {
         padding-top: 60px;

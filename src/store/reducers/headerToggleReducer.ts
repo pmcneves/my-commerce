@@ -5,6 +5,7 @@ type OverlayReducer = {
   isLoginPopinOpen: boolean;
   isBurgerIconOpen: boolean;
   isSidebarOpen: boolean;
+  isHeaderHeightReduced: boolean;
 };
 
 const initialState: OverlayReducer = {
@@ -12,6 +13,7 @@ const initialState: OverlayReducer = {
   isLoginPopinOpen: false,
   isBurgerIconOpen: false,
   isSidebarOpen: false,
+  isHeaderHeightReduced: false,
 };
 
 const headerToggleReducer = (
@@ -38,7 +40,18 @@ const headerToggleReducer = (
         isSidebarOpen: !state.isSidebarOpen,
       };
     case types.CLOSE_OVERLAY:
-      return initialState;
+      return {
+        ...state,
+        isOverlayOpen: false,
+        isLoginPopinOpen: false,
+        isBurgerIconOpen: false,
+        isSidebarOpen: false,
+      };
+    case types.HEADER_HEIGHT:
+      return {
+        ...state,
+        isHeaderHeightReduced: !state.isHeaderHeightReduced,
+      };
     default:
       return state;
   }

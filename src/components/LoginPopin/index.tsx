@@ -1,32 +1,36 @@
 import { MouseEvent } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { loginPopinToggler } from "../../store/actions/headerTogglesActions";
+import {
+  isHeaderHeightReduced,
+  isLoginPopinOpen,
+} from "../../store/selectors/headerToggleSelectors";
 
-interface LoginPopinProps{
-  loginClassToAdd: string;
-
-}
-
-const LoginPopin: React.FC<LoginPopinProps> = ({
-  loginClassToAdd,
-}: LoginPopinProps) => {
+const LoginPopin: React.FC = () => {
   const history = useHistory();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
+  const isLoginPopinVisible = useSelector(isLoginPopinOpen);
+  const hasHeaderHeightChanged = useSelector(isHeaderHeightReduced);
 
   const goToSignUpPage = (e: MouseEvent<HTMLButtonElement>): void => {
     e.preventDefault();
     history.push("/create-account");
-    dispatch(loginPopinToggler())
+    dispatch(loginPopinToggler());
   };
 
   const closeLoginPopinBtnHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    dispatch(loginPopinToggler())
+    dispatch(loginPopinToggler());
   };
 
   return (
-    <div className={`login-popin-container ${loginClassToAdd}`}>
+    <div
+      className={`login-popin-container 
+      ${isLoginPopinVisible ? "login-popin-container__open" : ""} 
+      ${hasHeaderHeightChanged ? "login-popin-container__height-fix" : ""}`}
+    >
       <div className="login-popin">
         <form>
           <div className="login-popin__field">

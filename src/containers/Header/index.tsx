@@ -1,29 +1,56 @@
 import { GiShoppingCart, GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
-import Sidebar from "../../components/Sidebar";
 import { NavHashLink } from "react-router-hash-link";
-import LoginPopin from "../../components/LoginPopin";
 import { useDispatch, useSelector } from "react-redux";
 import {
   burgerIconToggler,
+  headerHeightToggler,
   loginPopinToggler,
   sidebarToggler,
 } from "../../store/actions/headerTogglesActions";
 import {
   isBurgerIconOpen,
-  isLoginPopinOpen,
-  isSidebarOpen,
+  isHeaderHeightReduced,
 } from "../../store/selectors/headerToggleSelectors";
+import { useEffect, useRef, useState } from "react";
 
 const Header: React.FC = () => {
   const dispatch = useDispatch();
+  const isMounted = useRef(false);
+
+  /**
+   * header changes styles when scroll
+   */
+  const [activatedScrollEffect, setActivedScrollEffect] = useState(false);
+  const onScroll = (e: any) => {
+    if (e.target.documentElement.scrollTop > 300) {
+      setActivedScrollEffect(true);
+    } else {
+      setActivedScrollEffect(false);
+    }
+  };
+
+  useEffect(() => {
+    isMounted.current = false;
+    window.addEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isMounted.current) {
+      dispatch(headerHeightToggler());
+    } else {
+      isMounted.current = true;
+    }
+  }, [activatedScrollEffect]);
 
   /**
    * sidebar handling
    */
-  const isSidebarVisible = useSelector(isSidebarOpen);
   const sidebarHandler = (): void => {
-    dispatch(sidebarToggler())
+    dispatch(sidebarToggler());
   };
 
   /**
@@ -37,13 +64,17 @@ const Header: React.FC = () => {
   /**
    * login handler
    */
-  const isLoginPopinVisible = useSelector(isLoginPopinOpen);
   const loginBtnHandler = (): void => {
     dispatch(loginPopinToggler());
   };
 
   return (
-    <header id="top" className="header">
+    <header
+      id="top"
+      className={`header ${
+        activatedScrollEffect ? "header__scroll-effect" : ""
+      }`}
+    >
       <div className="container header-container">
         <div className="header__brand">a lojinha</div>
         <div className="header__container">
@@ -74,11 +105,11 @@ const Header: React.FC = () => {
             <button className="header__log__btn" onClick={loginBtnHandler}>
               Login
             </button>
-            <LoginPopin
-              loginClassToAdd={isLoginPopinVisible ? "loginpopin-open" : ""}
-            />
           </div>
-          <div className="header__burger__container" onClick={burgerIconHandler}>
+          <div
+            className="header__burger__container"
+            onClick={burgerIconHandler}
+          >
             {isBurgerIconToggledOn ? (
               <AiOutlineClose className="header__burger-icon" />
             ) : (
@@ -87,7 +118,6 @@ const Header: React.FC = () => {
           </div>
         </div>
       </div>
-      <Sidebar classToAdd={isSidebarVisible ? 'sidebar-open' : ''} sidebarHandler={sidebarHandler} />
     </header>
   );
 };

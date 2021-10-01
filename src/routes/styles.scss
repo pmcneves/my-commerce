@@ -1,0 +1,7 @@
+.container-padding {
+    padding-top: 80px;
+    transition: padding-top 0.1s ease-in-out;
+    &__header-height-change {
+        padding-top: 60px;
+    }
+}

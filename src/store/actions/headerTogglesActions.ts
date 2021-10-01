@@ -7,6 +7,7 @@ const types = {
   LOGIN_POPIN: "LOGIN_POPIN",
   BURGER_ICON: "BURGER_ICON",
   SIDEBAR: "SIDEBAR",
+  HEADER_HEIGHT: "HEADER_HEIGHT",
 };
 
 export default types;
@@ -26,11 +27,16 @@ type SidebarToggler = {
   type: typeof types.SIDEBAR;
 };
 
+type HeaderHeightToggler = {
+  type: typeof types.HEADER_HEIGHT;
+};
+
 export type OverlayActions =
   | CloseOverlay
   | LoginPopin
   | BurgerIconToggler
-  | SidebarToggler;
+  | SidebarToggler
+  | HeaderHeightToggler;
 
 export const closeOverlay = (): CloseOverlay => ({
   type: types.CLOSE_OVERLAY,
@@ -46,4 +52,8 @@ export const burgerIconToggler = (): BurgerIconToggler => ({
 
 export const sidebarToggler = (): SidebarToggler => ({
   type: types.SIDEBAR,
+});
+
+export const headerHeightToggler = (): HeaderHeightToggler => ({
+  type: types.HEADER_HEIGHT,
 });

@@ -8,3 +8,5 @@ export const isBurgerIconOpen = (state: RootState): boolean =>
   state.headerToggle.isBurgerIconOpen;
 export const isSidebarOpen = (state: RootState): boolean =>
   state.headerToggle.isSidebarOpen;
+export const isHeaderHeightReduced = (state: RootState): boolean =>
+  state.headerToggle.isHeaderHeightReduced;

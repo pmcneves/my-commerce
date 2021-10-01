@@ -4,6 +4,9 @@
 @import './base/fonts.scss';
 
 
+// Routes
+@import '../routes/styles.scss';
+
 // Components
 @import '../components/Button/styles.scss';
 @import '../components/Sidebar/styles.scss';
@@ -15,6 +18,8 @@
 @import '../components/RefundPolicy/styles.scss';
 @import '../components/Footer/styles.scss';
 @import '../components/LoginPopin/styles.scss';
+@import '../components/Overlay/styles.scss';
+@import '../components/Button/ScrollBtn/styles.scss';
 
 // Containers
 @import '../containers/Header/styles.scss';
@@ -24,4 +29,6 @@
 @import '../screens/ItemPage/styles.scss';
 @import '../screens/CreateAccount/styles.scss';
 @import '../screens/Cart/styles.scss';
+@import '../screens/Homepage/styles.scss';
+
 

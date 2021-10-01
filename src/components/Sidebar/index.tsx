@@ -1,11 +1,16 @@
-type SidebarProps = {
-    classToAdd: string;
-    closeSidebar: () => void
-};
+import { useDispatch, useSelector } from "react-redux";
+import { sidebarToggler } from "../../store/actions/headerTogglesActions";
+import { isSidebarOpen } from "../../store/selectors/headerToggleSelectors";
 
-const Sidebar: React.FC<SidebarProps> = ({ classToAdd, closeSidebar }: SidebarProps) => {
+const Sidebar: React.FC = () => {
+    const dispatch = useDispatch();
+  const isSidebarVisible = useSelector(isSidebarOpen);
+
+    const closeSidebar = () => {
+        dispatch(sidebarToggler())
+    }
     return (
-        <div className={`${classToAdd} sidenav`}>
+        <div className={`${isSidebarVisible ? "sidebar-open" : ""} sidenav`}>
             <div className="sidenav__header">
                 <h1>Cart</h1>
                 <a onClick={closeSidebar} className="closebtn">

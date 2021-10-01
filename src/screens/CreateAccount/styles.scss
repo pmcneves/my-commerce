@@ -1,8 +1,8 @@
 .create-container {
-  min-height: 722px;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: calc(100vh - 120px)
 }
 
 .create-subcontainer {

@@ -5,30 +5,46 @@
     z-index: 10;
     top: 0;
     right: 0;
-    background-color: #111;
+    background-color: $light-gold;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
-  }
-  
-  .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  .sidenav a:hover {
-    color: #f1f1f1;
+    padding: 20px 0;
+    &--open {
+      width: 250px;
+    }
+    a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+      &:hover {
+        color: #f1f1f1;
+      }
+    }
+    &__header {
+      &__btn {
+        background: none;
+        border: none;
+        color: $gold;
+        margin-left: $s-size;
+        &:hover {
+          color: $dark-gold;
+        }
+      }
+      &__title {
+        text-align: center;
+        color: $dark-gold;
+      }
+    }
   }
 
-  .sidebar-open {
-      width: 250px;
-  }
   
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
+  @media only screen and (max-width: 576px) {
+    .sidenav {
+      &--open {
+        width: 100%;
+      }
+    }
+}

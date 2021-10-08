@@ -6,7 +6,8 @@ import { FETCH_DATA } from './utils';
 function* dataFromApi(): SagaIterator {
     try {
         const dataJson = yield call(() =>
-            fetch('https://fakestoreapi.com/products').then(res => res.json())
+            // fetch('https://fakestoreapi.com/products').then(res => res.json())
+            fetch('http://localhost:3001/storeItems').then(res => res.json())
         );
         yield put(setDataFromApi(dataJson));
     } catch (e) {

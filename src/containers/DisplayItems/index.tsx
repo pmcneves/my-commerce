@@ -12,6 +12,8 @@ const DisplayItems: React.FC = () => {
     const loading = useSelector(getLoadingStatus);
     const history = useHistory();
 
+    console.log(JSON.stringify(storeItems));
+
     /**
      * navigate to specific product id
      */

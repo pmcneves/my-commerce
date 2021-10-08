@@ -1,6 +1,6 @@
 import { useState, SyntheticEvent } from "react";
 import { useDispatch } from "react-redux";
-import { startCreateAccount } from "./actions";
+import { startCreateAccount } from "../../store/actions/authActions";
 
 const CreateAccount: React.FC = () => {
   const dispatch = useDispatch();
@@ -18,8 +18,8 @@ const CreateAccount: React.FC = () => {
     e.preventDefault();
     const data = {
       name: {
-        firstname: firstName,
-        lastname: lastName,
+        firstName: firstName,
+        lastName: lastName,
       },
       email: email,
       username: username,

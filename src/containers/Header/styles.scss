@@ -6,7 +6,7 @@
   position: fixed;
   width: 100%;
   z-index: 1;
-  transition: background-color .1s ease, height .1s ease;
+  transition: background-color 0.1s ease, height 0.1s ease;
   &-container {
     display: flex;
     align-items: center;
@@ -42,6 +42,7 @@
     border: none;
     padding-right: $xl-size;
     padding-left: $xl-size;
+    cursor: pointer;
   }
   &__log {
     display: flex;
@@ -68,7 +69,6 @@
     & .header__cart,
     & .header__log__btn {
       color: $off-black;
-
     }
   }
 }

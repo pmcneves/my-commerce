@@ -3,19 +3,17 @@ import { sidebarToggler } from "../../store/actions/headerTogglesActions";
 import { isSidebarOpen } from "../../store/selectors/headerToggleSelectors";
 import { BsArrowLeft } from "react-icons/bs";
 import { cartSlice } from "../../screens/Cart/selectors";
+import SidebarItem from "../SidebarItem";
+import { storeItem } from "../../screens/Homepage/types";
 
 const Sidebar: React.FC = () => {
   const dispatch = useDispatch();
   const isSidebarVisible = useSelector(isSidebarOpen);
-  const cart = useSelector(cartSlice);
+  const cart: storeItem[] = useSelector(cartSlice);
 
-  console.log(cart)
-
-  
   const closeSidebar = () => {
     dispatch(sidebarToggler());
   };
-
 
   return (
     <div className={`sidenav ${isSidebarVisible ? "sidenav--open" : ""}`}>
@@ -25,12 +23,11 @@ const Sidebar: React.FC = () => {
         </button>
         <h1 className="sidenav__header__title">Cart</h1>
       </div>
-      <div className="sidenav__content">
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
-      </div>
+      {/* {cart.map((item: storeItem) => (
+        // <div key={item.id}>
+        //   <SidebarItem item={item}/>
+        // </div>
+      ))} */}
     </div>
   );
 };

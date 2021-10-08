@@ -6,7 +6,7 @@
   position: fixed;
   width: 100%;
   z-index: 1;
-  transition: background-color .2s ease-in-out, height .2s ease-in-out;
+  transition: background-color .1s ease, height .1s ease;
   &-container {
     display: flex;
     align-items: center;

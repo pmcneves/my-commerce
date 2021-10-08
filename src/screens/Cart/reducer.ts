@@ -4,7 +4,7 @@ import { GET_CART, SET_CART } from "./utils";
 
 export interface CartModel {
   loading: boolean;
-  cart: Array<storeItem>;
+  items: Array<storeItem>;
 }
 
 const dummyCart = [
@@ -52,7 +52,7 @@ const dummyCart = [
 
 const initialState = {
   loading: false,
-  cart: dummyCart,
+  items: dummyCart,
 };
 
 const cartReducer = (
@@ -69,8 +69,7 @@ const cartReducer = (
       return {
         ...state,
         loading: false,
-        //fix cart
-        cart: state.cart,
+        items: state.items,
       };
     default:
       return state;

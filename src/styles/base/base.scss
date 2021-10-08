@@ -32,6 +32,10 @@ button {
     padding-bottom: 50px;
 }
 
+.lock-background {
+    overflow: hidden;
+}
+
 @media only screen and (max-width: 576px) {
     .container {
         width: 100%;
